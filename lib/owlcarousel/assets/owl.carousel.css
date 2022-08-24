@@ -161,7 +161,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  transition: opacity 400ms ease; }
+  transition: opacity 600ms ease; }
 
 .owl-carousel .owl-video-frame {
   position: relative;
