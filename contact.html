@@ -27,6 +27,8 @@
     
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        
     </head>
 
 <body>
@@ -134,7 +136,7 @@
                     <div class="contact-form">
                         <div id="success"></div>
 
-                        <form onsubmit="sendContactMessage()">
+                        <form onsubmit="sendContactMessage(); reset();">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group" style="margin-bottom: 1rem;">
                                     <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" />
@@ -177,7 +179,7 @@
                     <div class="col-lg-6 py-5">
                         <div class="rounded p-5 my-5" style="background: rgba(55, 55, 63, .7);">
                             <h1 class="text-center text-white mb-4">Request An Appointment</h1>
-                            <form>
+                            <form onsubmit="success()">
                                 <div class="form-group">
                                     <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
                                 </div>
@@ -305,18 +307,18 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!--emailjs-->
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("eHdG5-mBLWcMwx_tS");
+        emailjs.init("eHdG5-mBLWcMwx_tS");
         })();
     </script>
     <!--sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

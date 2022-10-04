@@ -144,12 +144,12 @@ function sendEmailAppointment(){
         date: date,
         time: document.getElementById("time_appointment").value,  
         });
+
     success();
 }
 
 function sendContactMessage(){
-    //sendEmailContact();
-    success();
+    sendEmailContact();
     if (!sendEmailContact()){
         error();
         return false;
@@ -163,6 +163,7 @@ function sendEmailContact(){
         subject: document.getElementById("subject").value,
         message: document.getElementById("message").value,
     });
+    
     success();
 }
 
