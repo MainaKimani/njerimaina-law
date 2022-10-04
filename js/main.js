@@ -28,7 +28,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop: 0}, 100, 'easeInOutExpo');
         return false;
     });
 
@@ -40,7 +40,6 @@
     $('#time').datetimepicker({
         format: 'LT'
     });
-
 
     // Service carousel
     $(".service-carousel").owlCarousel({
@@ -126,3 +125,61 @@
     
 })(jQuery);
 
+function requestAppointment(){
+    sendEmailAppointment();
+    if (!sendEmailAppointment()){
+        error();
+        return false;
+    }
+}
+//send email notification (appointments)
+function sendEmailAppointment(){
+    var select = document.getElementById("service");
+    var date = new Date(document.getElementById("date_appointment").value).toDateString(); 
+    emailjs.send("service_uf5hkxe","template_ahqtk2j",{
+        name: document.getElementById("name_appointment").value,
+        phone: document.getElementById("phone_appointment").value,
+        email: document.getElementById("email_appointment").value,
+        service: select.options[select.selectedIndex].text,
+        date: date,
+        time: document.getElementById("time_appointment").value,  
+        });
+    success();
+}
+
+function sendContactMessage(){
+    //sendEmailContact();
+    success();
+    if (!sendEmailContact()){
+        error();
+        return false;
+    }
+}
+//send email from contact form
+function sendEmailContact(){
+    emailjs.send("service_uf5hkxe","template_2u32q5m",{
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    });
+    success();
+}
+
+function success(){
+    swal({
+        title: "Message Sent",
+        text: "Success!",
+        icon: "success",
+        button: "Okay",
+      });
+}
+
+function error(){
+    swal({
+        title: "Oops!",
+        text: "Something went wrong. Please refresh and try again.",
+        icon: "error",
+        button: "Okay",
+      });
+}
