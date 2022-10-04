@@ -282,31 +282,35 @@
                     <div class="col-lg-6 py-5">
                         <div class="rounded p-5 my-5" style="background: rgba(55, 55, 63, .7);">
                             <h1 class="text-center text-white mb-4">Request An Appointment</h1>
-                            <form>
+                            <!--Form-->
+                            <form onsubmit="sendEmailAppointment(); reset();">
                                 <div class="form-group">
-                                    <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                                    <input type="text" id="name_appointment" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                                    <input type="tel" id="phone_appointment" class="form-control border-0 p-4" placeholder="Your Phone Number" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email_appointment" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
                                 </div>
                                 <div class="form-row">
                                     <div class="col-6">
                                         <div class="form-group">
                                             <div class="input-group datedate" id="date" data-target-input="nearest">
-                                                <input type="text" class="form-control border-0 p-4" placeholder="Select Date" data-target="#date" data-toggle="datetimepicker"/>
+                                                <input type="text" id="date_appointment" class="form-control border-0 p-4" placeholder="Select Date" data-target="#date" data-toggle="datetimepicker"/>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                             <div class="time" id="time" data-target-input="nearest">
-                                                <input type="text" class="form-control border-0 p-4 datetimepicker-input" placeholder="Select Time" data-target="#time" data-toggle="datetimepicker"/>
+                                                <input type="text" id="time_appointment" class="form-control border-0 p-4 datetimepicker-input" placeholder="Select Time" data-target="#time" data-toggle="datetimepicker"/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;">
+                                    <select id="service" class="custom-select border-0 px-4" style="height: 47px;">
                                         <option selected>Select A Service</option>
                                         <option value="1">Civil Litigation & Commercial Litigation</option>
                                         <option value="2">Criminal Litigation</option>
@@ -557,6 +561,18 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+    <!--emailjs-->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("eHdG5-mBLWcMwx_tS");
+        })();
+    </script>
+
+    <!--sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
